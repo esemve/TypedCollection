@@ -61,7 +61,7 @@ abstract class AbstractTypedCollection extends Collection
     {
         $this->validateValue($value);
 
-        parent::prepend($value, $key = null);
+        parent::prepend($value, $key);
     }
 
     protected function validateValues(array $array): void
