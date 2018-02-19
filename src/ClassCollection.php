@@ -12,6 +12,11 @@ class ClassCollection extends AbstractTypedCollection
         parent::__construct($array);
     }
 
+    public function getValidClassName(): ?string
+    {
+        return $this->validClassName;
+    }
+
     protected function isValid($element): bool
     {
         return is_a($element, $this->validClassName);
