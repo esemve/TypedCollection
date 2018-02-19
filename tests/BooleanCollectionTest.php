@@ -36,7 +36,8 @@ class BooleanCollectionTest extends AbstractCollectionTestCase
         return [
             [1],
             [new \stdClass()],
-            [function() {}],
+            [function () {
+            }],
             [[1,2,3]],
             ['test','info']
         ];

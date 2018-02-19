@@ -36,7 +36,8 @@ class ArrayCollectionTest extends AbstractCollectionTestCase
         return [
             [1],
             [new \stdClass()],
-            [function() {}],
+            [function () {
+            }],
             [4.3],
             ['test','info']
         ];

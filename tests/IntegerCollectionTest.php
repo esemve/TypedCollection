@@ -36,7 +36,8 @@ class IntegerCollectionTest extends AbstractCollectionTestCase
         return [
             ['1'],
             [new \stdClass()],
-            [function() {}],
+            [function () {
+            }],
             [['info','notvalid']],
             [3.12]
         ];

@@ -205,5 +205,4 @@ abstract class AbstractCollectionTestCase extends TestCase
         $className = $this->getClassName();
         return new $className();
     }
-
 }

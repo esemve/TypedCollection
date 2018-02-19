@@ -35,7 +35,8 @@ class ObjectCollectionTest extends AbstractCollectionTestCase
         return [
             [1],
             ['hello','test'],
-            [function() {}],
+            [function () {
+            }],
             [[1,2,3]],
             [3.12]
         ];

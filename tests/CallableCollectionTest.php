@@ -23,8 +23,13 @@ class CallableCollectionTest extends AbstractCollectionTestCase
     public function dataProvider(): array
     {
         return [
-            [[function() {}, function() {}], function() {}],
-            [[function() {}], function() {}]
+            [[function () {
+            }, function () {
+            }], function () {
+            }],
+            [[function () {
+            }], function () {
+            }]
         ];
     }
 
