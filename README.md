@@ -72,8 +72,8 @@ If you want create your own typed collection, just create a new Collection file,
 After this your only task is to fill the isValid function. 
 It will check every added value, and if you try to add a value that is not allowed, the AbstractTypedCollection will automatically throw an InvalidTypedException.
 
-```
-PostCollection.php:
+```php
+/// PostCollection.php:
 
 <?php
 
@@ -95,7 +95,7 @@ class CallableCollection extends AbstractTypedCollection
 
 That's it. If you want to add your exception message, just add a getErrorMessage method to your class:
 
-```
+```php
     protected function getErrorMessage(): ?string
     {
         return 'It\'s my own error message';
