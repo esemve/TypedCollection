@@ -41,6 +41,13 @@ function hello(StringCollection $names): StringCollection {
 
 It's so simple!
 
+
+## Installation
+
+```
+composer require esemve/typed-collection
+```
+
 ### Types
 
 You can use these default types:
