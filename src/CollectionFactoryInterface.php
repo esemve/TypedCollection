@@ -12,8 +12,6 @@ interface CollectionFactoryInterface
 
     public function createClassCollection(string $classname, array $array): ClassCollection;
 
-    public function createCollectionCollection(array $array): CollectionCollection;
-
     public function createFloatCollection(array $array): FloatCollection;
 
     public function createIntegerCollection(array $array): IntegerCollection;

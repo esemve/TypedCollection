@@ -1,13 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Esemve\Collection;
 
 use Esemve\Collection\Exception\InvalidTypeException;
+use Esemve\Collection\Exception\NotSupportedException;
 use Tightenco\Collect\Support\Collection;
 
 abstract class AbstractTypedCollection extends Collection
 {
-    public function __construct(array $array)
+    public function __construct(array $array = [])
     {
         $this->validateValues($array);
         parent::__construct($array);
@@ -40,28 +43,33 @@ abstract class AbstractTypedCollection extends Collection
     {
         $this->validateValues($items);
 
-        parent::merge($items);
+        return parent::merge($items);
     }
 
+    /**
+     * @param mixed $items
+     * @throws NotSupportedException
+     * @deprecated
+     */
     public function combine($items)
     {
-        $this->validateValues($items);
-
-        parent::combine($items);
+        throw new NotSupportedException(
+            'Typed collections not supported the combine method!'
+        );
     }
 
     public function union($items)
     {
         $this->validateValues($items);
 
-        parent::union($items);
+        return parent::union($items);
     }
 
     public function prepend($value, $key = null)
     {
         $this->validateValue($value);
 
-        parent::prepend($value, $key);
+        return parent::prepend($value, $key);
     }
 
     protected function validateValues(array $array): void
@@ -78,8 +86,9 @@ abstract class AbstractTypedCollection extends Collection
 
             if ($message === null) {
                 $errorType = gettype($value);
+
                 if ($errorType==='object') {
-                    $errorType = get_class($errorType);
+                    $errorType = get_class($value);
                 }
 
                 $message = sprintf(

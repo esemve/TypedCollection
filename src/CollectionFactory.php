@@ -21,11 +21,6 @@ class CollectionFactory implements CollectionFactoryInterface
         return new ClassCollection($classname, $array);
     }
 
-    public function createCollectionCollection(array $array): CollectionCollection
-    {
-        return new CollectionCollection($array);
-    }
-
     public function createFloatCollection(array $array): FloatCollection
     {
         return new FloatCollection($array);
