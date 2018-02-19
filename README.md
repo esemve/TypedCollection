@@ -55,17 +55,6 @@ You can use these default types:
 - ResourceCollection
 - StringCollection
 
-### ClassCollection
-
-There is a simple way to specify an 'instance of' typed collection:
-
-```php
-$photo1 = new Photo();
-$photo2 = new Photo();
- 
-$photoCollection = new ClassCollection(Photo::class, [$photo1, $photo2])
-```
-
 ### Create your own typed collection
 
 If you want create your own typed collection, just create a new Collection file, and extend the AbstractTypedCollection. 
@@ -83,7 +72,7 @@ namespace Esemve\Collection;
 
 use Entity\Post;
 
-class CallableCollection extends AbstractTypedCollection
+class PostCollection extends AbstractTypedCollection
 {
     protected function isValid($element): bool
     {
@@ -101,6 +90,17 @@ That's it. If you want to add your exception message, just add a getErrorMessage
         return 'It\'s my own error message';
     }
     
+```
+
+### ClassCollection
+
+There is a simple way to specify an 'instance of' typed collection:
+
+```php
+$photo1 = new Photo();
+$photo2 = new Photo();
+ 
+$photoCollection = new ClassCollection(Photo::class, [$photo1, $photo2])
 ```
 
 ### Use the Factory
