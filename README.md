@@ -85,11 +85,10 @@ class PostCollection extends AbstractTypedCollection
 That's it. If you want to add your exception message, just add a getErrorMessage method to your class:
 
 ```php
-    protected function getErrorMessage(): ?string
-    {
-        return 'It\'s my own error message';
-    }
-    
+protected function getErrorMessage(): ?string
+{
+    return 'It\'s my own error message';
+}    
 ```
 
 ### ClassCollection

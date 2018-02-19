@@ -6,9 +6,9 @@ class ClassCollection extends AbstractTypedCollection
 {
     protected $validClassName = null;
 
-    public function __construct(string $className, array $array)
+    public function __construct(string $validClassName, array $array)
     {
-        $this->validClassName = $className;
+        $this->validClassName = $validClassName;
         parent::__construct($array);
     }
 
