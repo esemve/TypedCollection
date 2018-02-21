@@ -16,6 +16,11 @@ abstract class AbstractTypedCollection extends Collection
         parent::__construct($array);
     }
 
+    /**
+     * Validate an element in array.
+     * @param $element
+     * @return bool
+     */
     abstract protected function isValid($element): bool;
 
     public function push($value)

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Esemve\Tests\Collection;
 
 use Esemve\Collection\BooleanCollection;
@@ -29,6 +31,7 @@ class BooleanCollectionTest extends AbstractCollectionTestCase
     }
 
     /**
+     * Dataprovider for negative tests
      * @return array
      */
     public function exceptionDataProvider(): array

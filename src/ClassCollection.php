@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Esemve\Collection;
 
 class ClassCollection extends AbstractTypedCollection

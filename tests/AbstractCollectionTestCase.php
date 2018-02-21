@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Esemve\Tests\Collection;
 
 use Esemve\Collection\AbstractTypedCollection;
@@ -21,6 +23,7 @@ abstract class AbstractCollectionTestCase extends TestCase
     abstract public function dataProvider(): array;
 
     /**
+     * Dataprovider for negative tests
      * @return array
      */
     abstract public function exceptionDataProvider(): array;
