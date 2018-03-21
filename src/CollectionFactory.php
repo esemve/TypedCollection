@@ -8,6 +8,16 @@ use Tightenco\Collect\Support\Collection;
 
 class CollectionFactory implements CollectionFactoryInterface
 {
+    /**
+     * @var array
+     */
+    private $remap;
+
+    public function __construct(array $remap = [])
+    {
+        $this->remap = $remap;
+    }
+
     public function createBooleanCollection(array $array): BooleanCollection
     {
         return new BooleanCollection($array);
@@ -18,9 +28,9 @@ class CollectionFactory implements CollectionFactoryInterface
         return new CallableCollection($array);
     }
 
-    public function createClassCollection(string $classname, array $array): ClassCollection
+    public function createClassCollection(string $className, array $array): ClassCollection
     {
-        return new ClassCollection($classname, $array);
+        return new ClassCollection($className, $array);
     }
 
     public function createFloatCollection(array $array): FloatCollection
@@ -53,8 +63,16 @@ class CollectionFactory implements CollectionFactoryInterface
         return new StringCollection($array);
     }
 
-    public function create(array $array): Collection
+    public function createCollection(array $array): Collection
     {
         return new Collection($array);
+    }
+
+    public function create(string $className, array $value): Collection
+    {
+        if (!empty($this->remap[$className])) {
+            $className = $this->remap[$className];
+        }
+        return new $className($value);
     }
 }

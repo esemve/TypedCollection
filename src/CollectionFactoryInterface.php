@@ -10,7 +10,7 @@ interface CollectionFactoryInterface
 
     public function createCallableCollection(array $array): CallableCollection;
 
-    public function createClassCollection(string $classname, array $array): ClassCollection;
+    public function createClassCollection(string $className, array $array): ClassCollection;
 
     public function createFloatCollection(array $array): FloatCollection;
 
@@ -24,5 +24,7 @@ interface CollectionFactoryInterface
 
     public function createStringCollection(array $array): StringCollection;
 
-    public function create(array $array): Collection;
+    public function createCollection(array $array): Collection;
+
+    public function create(string $className, array $value): Collection;
 }
