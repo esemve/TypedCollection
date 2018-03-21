@@ -51,6 +51,17 @@ abstract class AbstractTypedCollection extends Collection
         return parent::merge($items);
     }
 
+    public function keys()
+    {
+        $arrayKeys = array_keys($this->items);
+        foreach ($arrayKeys AS $position => $key)
+        {
+            $arrayKeys[$position] = (string) $key;
+        }
+
+        return new StringCollection($arrayKeys);
+    }
+
     /**
      * @param mixed $items
      * @throws NotSupportedException
