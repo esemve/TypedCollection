@@ -125,7 +125,7 @@ If you use the CollectionFactory, you can use this methods from it:
 - createResourceCollection(array $array): ResourceCollection;
 - createStringCollection(array $array): StringCollection;
 - createCollection(array $array): Collection;
-- create(PostCollection::class, $array): PostCollection (PostCollection just an example)
+- create(PostCollection::class, $array): Collection (PostCollection just an example. It return a PostCollection)
 
 In the factory you can remap the ::class classnames in the factory constructor param.
 
