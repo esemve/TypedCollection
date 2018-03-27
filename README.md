@@ -134,6 +134,8 @@ In the factory you can remap the ::class classnames in the factory constructor p
 
 I've disabled the combine method from the original Collection class, because if you use that, your collection type can get mixed up.
 
+The keys() method always return a StringCollection.
+
 
 ### External package
 
