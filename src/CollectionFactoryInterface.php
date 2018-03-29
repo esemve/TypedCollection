@@ -2,8 +2,6 @@
 
 namespace Esemve\Collection;
 
-use Tightenco\Collect\Support\Collection;
-
 interface CollectionFactoryInterface
 {
     public function createBooleanCollection(array $array): BooleanCollection;
@@ -26,5 +24,5 @@ interface CollectionFactoryInterface
 
     public function createCollection(array $array): Collection;
 
-    public function create(string $className, array $value): Collection;
+    public function create(string $className, array $value);
 }

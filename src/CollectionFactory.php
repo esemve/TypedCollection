@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Esemve\Collection;
 
-use Tightenco\Collect\Support\Collection;
 
 class CollectionFactory implements CollectionFactoryInterface
 {
@@ -68,11 +67,16 @@ class CollectionFactory implements CollectionFactoryInterface
         return new Collection($array);
     }
 
-    public function create(string $className, array $value): Collection
+    public function create(string $className, array $value)
     {
         if (!empty($this->remap[$className])) {
             $className = $this->remap[$className];
         }
         return new $className($value);
+    }
+
+    public function convert(Collection $collection, string $className): Collection
+    {
+        $this->create($className, $collection->all());
     }
 }

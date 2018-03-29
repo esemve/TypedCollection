@@ -6,9 +6,9 @@ namespace Esemve\Collection;
 
 use Esemve\Collection\Exception\InvalidTypeException;
 use Esemve\Collection\Exception\NotSupportedException;
-use Tightenco\Collect\Support\Collection;
+use Tightenco\Collect\Support\Collection as BaseCollection;
 
-abstract class AbstractTypedCollection extends Collection
+abstract class AbstractTypedCollection extends BaseCollection
 {
     public function __construct(array $array = [])
     {
@@ -37,6 +37,25 @@ abstract class AbstractTypedCollection extends Collection
         return parent::put($key, $value);
     }
 
+    public function map(callable $callback)
+    {
+        $keys = array_keys($this->items);
+
+        $items = array_map($callback, $this->items, $keys);
+
+        try {
+            foreach ($items AS $item) {
+                if ($this->isValid($item) === false) {
+                    throw new \Exception();
+                }
+            }
+            return new static(array_combine($keys, $items));
+        }
+        catch (\Exception $e) {
+            return new Collection(array_combine($keys, $items));
+        }
+    }
+
     public function offsetSet($key, $value)
     {
         $this->validateValue($value);
@@ -49,6 +68,17 @@ abstract class AbstractTypedCollection extends Collection
         $this->validateValues($items);
 
         return parent::merge($items);
+    }
+
+    public function keys()
+    {
+        $arrayKeys = array_keys($this->items);
+        foreach ($arrayKeys AS $position => $key)
+        {
+            $arrayKeys[$position] = (string) $key;
+        }
+
+        return new StringCollection($arrayKeys);
     }
 
     /**
