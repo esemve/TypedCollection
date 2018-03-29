@@ -124,12 +124,17 @@ If you use the CollectionFactory, you can use this methods from it:
 - createObjectCollection(array $array): ObjectCollection;
 - createResourceCollection(array $array): ResourceCollection;
 - createStringCollection(array $array): StringCollection;
-- create(array $array): Collection;
+- createCollection(array $array): Collection;
+- create(PostCollection::class, $array): Collection (PostCollection just an example. It return a PostCollection)
+
+In the factory you can remap the ::class classnames in the factory constructor param.
 
 
 ### Modifications
 
 I've disabled the combine method from the original Collection class, because if you use that, your collection type can get mixed up.
+
+The keys() method always return a StringCollection.
 
 
 ### External package
